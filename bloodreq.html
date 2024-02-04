@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+     <title>Need Blood???</title>
+     <link rel="stylesheet" href="bloodreq.html">
+<style>
+  body {
+    text-align: center;
+    
+      margin: 0;
+      padding: 0;
+      background-image: url('bloodreq.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+         
+  }
+
+  .blood-group {
+    display: block;
+    margin: 10px;
+  }
+</style>
+</head>
+<h2>Choose Required Bloood Group</h2>
+
+<form>
+  <label class="blood-group">
+    <input type="radio" name="bloodGroup" value="A+"> A+
+  </label>
+  <label class="blood-group">
+    <input type="radio" name="bloodGroup" value="A-"> A-
+  </label>
+  <label class="blood-group">
+    <input type="radio" name="bloodGroup" value="B+"> B+
+  </label>
+  <label class="blood-group">
+    <input type="radio" name="bloodGroup" value="B-"> B-
+  </label>
+  <label class="blood-group">
+    <input type="radio" name="bloodGroup" value="AB+"> AB+
+  </label>
+  <label class="blood-group">
+    <input type="radio" name="bloodGroup" value="AB-"> AB-
+  </label>
+  <label class="blood-group">
+    <input type="radio" name="bloodGroup" value="O+"> O+
+  </label>
+  <label class="blood-group">
+    <input type="radio" name="bloodGroup" value="O-"> O-
+  </label>
+
+  <br>
+  
+  <input type="submit" value="Submit">
+</form>
+
+<div>
+  <h3>Selected Blood Group:</h3>
+  <p id="selectedBloodGroup"></p>
+</div>
+
+<script>
+  const form = document.querySelector('form');
+  const selectedBloodGroup = document.getElementById('selectedBloodGroup');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const selectedOption = document.querySelector('input[name="bloodGroup"]:checked');
+    if (selectedOption) {
+      selectedBloodGroup.textContent = `You selected blood group: ${selectedOption.value}`;
+    } else {
+      selectedBloodGroup.textContent = 'Please select a blood group';
+    }
+  });
+</script>
+
+</body>
+</html>
